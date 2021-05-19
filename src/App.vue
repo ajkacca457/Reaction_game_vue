@@ -64,8 +64,9 @@ export default {
 
 .display {
   width: 100%;
-  height: 100%;
+  height: 60vh;
   padding:3% 0;
+  position: relative;
  
 }
 
