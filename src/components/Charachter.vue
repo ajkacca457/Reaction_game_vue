@@ -1,7 +1,7 @@
 <template>
   
     <span>
-        <img :src="Micky" alt="micky mouse" class="micky" @click="check" v-if="showimg">
+        <img :src="Micky" alt="micky mouse" class="micky" @click="stopTime"  v-if="showimg">
     </span>
 
 </template>
@@ -15,21 +15,33 @@ props:["delay"],
 data(){
     return{
         Micky,
-        showimg:false
+        showimg:false,
+        timer: null,
+        reactiontime:0
     }
 
-},
-
-methods:{
-    check(){
-        console.log(this.delay)
-    }
 },
 
 mounted (){
     setTimeout(()=>{
-        this.showimg=true
+        this.showimg=true;
+        this.startTime();
     },this.delay)
+
+},
+
+methods: {
+
+    startTime(){
+        this.timer= setInterval(()=> {
+            this.reactiontime+=10
+        }, 10)
+    },
+
+    stopTime(){
+        clearInterval(this.timer);
+        this.$emit("endgame",this.reactiontime);
+    }
 
 }
 

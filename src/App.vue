@@ -1,9 +1,10 @@
 <template>
   <div class="Game">
   <Navbar/>
-  <button class="btn" @click="play" :disabled="isPlay" >Start</button>
+  <button class="btn" @click="play" :disabled="isPlay">Start</button>
+  <Result :score="score" v-if="showscore"/>
   <div class="display">
-  <Charachter v-if="isPlay" :delay="delay"/>
+  <Charachter v-if="isPlay" :delay="delay" @endgame="end"/>
   </div>
   </div>
 
@@ -12,6 +13,7 @@
 <script>
 import Navbar from "./components/Navbar.vue"
 import Charachter from "./components/Charachter.vue"
+import Result from "./components/Result.vue"
 
 
 
@@ -19,12 +21,15 @@ export default {
   name: 'App',
   components: {
     Navbar,
-    Charachter
+    Charachter,
+    Result
   },
   data(){
     return{
       delay:null,
-      isPlay:false
+      isPlay:false,
+      score:null,
+      showscore:false
     }
 
   },
@@ -33,8 +38,14 @@ export default {
 
     play(){
       this.isPlay=true;
-      this.delay= 2000+Math.random()*3000;
+      this.delay= 1000+Math.random()*3000;
+      this.showscore=false;
+    },
 
+    end(score){
+      this.score=score;
+      this.isPlay=false;
+      this.showscore=true;
     }
   }
 
