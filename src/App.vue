@@ -1,9 +1,9 @@
 <template>
   <div class="Game">
   <Navbar/>
-  <button class="btn" @click="play" :disabled="isPlay">Start</button>
+  <button class="btn" @click="play" :disabled="isPlay" >Start</button>
   <div class="display">
-  <Charachter v-if="isPlay"/>
+  <Charachter v-if="isPlay" :delay="delay"/>
   </div>
   </div>
 
@@ -33,9 +33,7 @@ export default {
 
     play(){
       this.isPlay=true;
-      this.delay= 2000+Math.random()*5000;
-      console.log(this.delay)
-      console.log(this.isPlay)
+      this.delay= 2000+Math.random()*3000;
 
     }
   }
