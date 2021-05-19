@@ -16,11 +16,11 @@ data(){
 mounted(){
 
 if(this.score<400){
-  this.rank="You are Faster than the flash!!"
+  this.rank="You are Faster than the flash!! You are Super Flash."
 } else if( this.score<800){
-  this.rank="You are fast but Flash will kick your butt"
+  this.rank="You are fast but Flash will kick your butt. You are HawkEye."
 } else if(this.score>800){
-  this.rank="Are you here to play?? why are you even trying!!"
+  this.rank="Are you here to play?? why are you even trying!!. You are Whiplash."
 }
 
 }
