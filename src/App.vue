@@ -35,6 +35,7 @@ export default {
       this.isPlay=true;
       this.delay= 2000+Math.random()*5000;
       console.log(this.delay)
+      console.log(this.isPlay)
 
     }
   }
@@ -48,16 +49,9 @@ export default {
 }
 .btn {
   width:20%;
-  background-color:coral;
-  color:white;
-  border:none;
-  padding: 1% 2%;
-  border-radius: 5px;
-  transition: .3s all ease-out;
+  padding:5px 8px;
 }
-.btn:hover {
-background-color:crimson;
-}
+
 
 .display {
   width: 100%;
